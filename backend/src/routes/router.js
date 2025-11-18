@@ -11,6 +11,6 @@ const  router=express.Router();
 router.post("/create",upload.none(),handelSignUp);
 router.get("/verify/:token",handelEmailVerify)
 router.get("/login",upload.none(),handelLogin)
-router.get("/logout",requiredAuth,handelLogout)
+router.get("/logout",handelLogout)
 
 export default router

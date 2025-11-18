@@ -27,7 +27,7 @@ export  async function  getToken(token){
         const decoded=jwt.decode(token,config.jwtSecret)
 
         const user =await User.findById(decoded._id)
-        return user.id
+        return user
 
     } catch (error) {
          console.log("Token Get Error ",error)
