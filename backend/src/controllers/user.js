@@ -69,7 +69,12 @@ import blacklist from "./util.js";
 
     
 
-    return res.status(200).json("Email verified!");
+    return res.status(200).json({
+      status:"success",
+      message:"Email Verify Success"
+    });
+
+
   } catch (error) {
     console.error("Verification error:", error.message);
     return res.status(400).send("Error verifying token");
