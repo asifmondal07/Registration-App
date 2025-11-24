@@ -6,6 +6,7 @@ import { setToken } from "../service/auth.js";
 import blacklist from "./util.js";
 
 
+
  async function handelSignUp(req,res) {
     
     try {
@@ -53,31 +54,30 @@ import blacklist from "./util.js";
     }
 
     const user = await User.findById(userId);
-
+    console.log("user before email verify", user);
     if (!user) {
       return res.status(404).send("User not found");
     }
 
     // If already verified, block second attempt
     if (user.isVerified) {
-      return res.status(400).send("Email already verified");
+      return res.redirect("http://localhost:5173/login?verified=already");
     }
 
     // Mark verified
     user.isVerified = true;
     await user.save();
 
+    console.log("user after email verify", user)
     
 
-    return res.status(200).json({
-      status:"success",
-      message:"Email Verify Success"
-    });
+    return res.redirect("http://localhost:5173/login?verified=success");
+
 
 
   } catch (error) {
     console.error("Verification error:", error.message);
-    return res.status(400).send("Error verifying token");
+   return res.redirect("http://localhost:5173/login?verified=error");
   }
 }
 

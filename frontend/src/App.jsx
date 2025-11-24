@@ -17,7 +17,7 @@ function App() {
     const token = localStorage.getItem(token123);
     const userData = JSON.parse(localStorage.getItem('userData'));
 
-    if (token || userData) {
+    if (token && userData) {
       dispatch(login({ token, userData }));
       navigate("/")
     }

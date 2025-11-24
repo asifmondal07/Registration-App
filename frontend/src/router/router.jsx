@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App.jsx";
-import {Login, Signup,Home } from "../pages/index.js";
+import {Login, Signup,Home, NotFound } from "../pages/index.js";
 
 
 
@@ -20,6 +20,10 @@ import {Login, Signup,Home } from "../pages/index.js";
             {
                 path:"/login",
                 element:<Login/>
+            },
+            {
+                path:'*',
+                element:<NotFound/>
             }
         ]
     }

@@ -15,7 +15,6 @@ async function createTransporter() {
 
 async function sendVerificationEmail(email, token) {
   const verificationLink = `${config.baseUrl}/user/verify/${token}`;
-  const loginpage=`http://localhost:5173/login`
 
   const transporter = await createTransporter();
 
@@ -23,13 +22,13 @@ async function sendVerificationEmail(email, token) {
     from: `Verify Account <${config.emailUser}>`,
     to: email,
     subject: "Verify your email",
-    html: `<p>Click the following link to verify your email:</p>
-           <a href="${loginpage}">${verificationLink}</a>`,
+    html: `<p>Click the following link to verify your email: ${email}</p>
+           <a href="${verificationLink}">${verificationLink}</a>`,
   };
 
   const info = await transporter.sendMail(mailOptions);
 
-  console.log("Email sent:", info.messageId);
+  console.log("Email sent:", info.response);
 }
 
 export default sendVerificationEmail;
