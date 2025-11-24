@@ -22,7 +22,7 @@ async function sendVerificationEmail(email, token) {
     from: `Verify Account <${config.emailUser}>`,
     to: email,
     subject: "Verify your email",
-    html: `<p>Click the following link to verify your email: ${email}</p>
+    html: `<p>Click the following link to verify your email: </p>
            <a href="${verificationLink}">${verificationLink}</a>`,
   };
 
