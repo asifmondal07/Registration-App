@@ -19,6 +19,7 @@ function App() {
 
     if (token || userData) {
       dispatch(login({ token, userData }));
+      navigate("/")
     }
 
     setLoading(false);
