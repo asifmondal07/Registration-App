@@ -44,7 +44,7 @@ function Header() {
     <header className='bg-amber-100 shadow-md'>
       <Container>
         <div className='flex justify-between items-center py-4'>
-          <h1 className='text-2xl font-bold'>My Blog</h1>
+          <h1 className='text-4xl text-fuchsia-500 font-bold'>E\\V</h1>
           <nav className='flex space-x-4'>
             {navItems
             .filter((item) => item.active)
@@ -52,7 +52,7 @@ function Header() {
               <button
                 key={item.name}
                 to={item.path}
-                className={`text-lg inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full ${item.active ? 'text-blue-500' : 'text-gray-700'}`}
+                className={`text-lg inline-bock px-6 py-2 duration-200 hover:bg-red-200 rounded-full ${item.active ? 'text-blue-500' : 'text-gray-700'}`}
                 onClick={() => {
                   if (item.active) {
                     navigate(item.path)
@@ -76,7 +76,7 @@ function Header() {
               <button 
                 key={firstName}
                 to='/profile'
-                className={`text-lg inline-bock px-6 py-2 duration-200 hover:bg-blue-100 rounded-full 
+                className={`text-lg inline-bock px-6 py-2 duration-200 hover:bg-red-200 rounded-full 
                     ${firstName ? 'text-blue-500' : 'text-gray-700'}`}
 
               >
