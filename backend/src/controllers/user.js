@@ -20,6 +20,11 @@ import blacklist from "./util.js";
         const salt = await bcrypt.genSalt(10)
         const hashPassword= await bcrypt.hash(password,salt)
 
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+          return res.status(409).json({ message: "User already exists" });
+        }
+
 
         const newUser= await User.create({
             name:name,
